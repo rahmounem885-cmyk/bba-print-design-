@@ -124,7 +124,15 @@ section{padding:55px 0}.section-head{text-align:center;margin-bottom:30px}.secti
       <input id="quantity" type="number" min="1" value="1" required>
 
       <label for="details">تفاصيل الطلب</label>
-      <textarea id="details" rows="4" placeholder="اشرح لنا التصميم الذي تريده..."></textarea>
+      <label for="reference">إرفاق صورة أو ملف مرجعي</label>
+<input
+  id="reference"
+  type="file"
+  accept="image/*,.pdf"
+>
+<p style="color:#777;font-size:13px;">
+  اختر صورة أو ملف PDF يوضح التصميم المطلوب.
+</p>
 
       <button type="submit">إرسال الطلب عبر WhatsApp</button>
     </form>
