@@ -99,34 +99,55 @@ section{padding:55px 0}.section-head{text-align:center;margin-bottom:30px}.secti
 
 </div>
   </section>
-  <section id="order" style="padding:40px 15px;text-align:center;background:#fff;">
+<section id="order" style="padding:40px 15px;text-align:center;">
 
 <h2>اطلب تصميمك الآن</h2>
-<p>املأ معلوماتك وسنتواصل معك عبر واتساب</p>
+<p>املأ معلوماتك وسنتواصل معك</p>
 
-<form action="https://wa.me/213549324801" method="get" target="_blank">
+<form onsubmit="sendOrder(event)">
 
-<input type="hidden" name="text" value="طلب جديد من BBA Print & Design">
+<input id="customer" type="text"
+placeholder="اسم الزبون" required>
 
-<input type="text" name="text" placeholder="اسم الزبون" required
-style="width:100%;padding:12px;margin:8px 0;">
-
-<select name="text" required
-style="width:100%;padding:12px;margin:8px 0;">
+<select id="service" required>
 <option value="تصميم منشور">تصميم منشور</option>
 <option value="تصميم شعار">تصميم شعار</option>
 <option value="بطاقات أعمال">بطاقات أعمال</option>
 </select>
 
-<textarea placeholder="تفاصيل الطلب" required
-style="width:100%;padding:12px;margin:8px 0;"></textarea>
+<input id="quantity" type="number"
+placeholder="الكمية" min="1" required>
 
-<button type="submit" style="background:#25D366;color:white;padding:14px;border:0;border-radius:10px;">
-اطلب عبر WhatsApp
-</button>
+<textarea id="details"
+placeholder="تفاصيل الطلب"></textarea>
+
+<button type="submit">اطلب عبر WhatsApp</button>
 
 </form>
-  </section>
+</section>
+
+<script>
+function sendOrder(event) {
+event.preventDefault();
+
+const name = document.getElementById('customer').value;
+const service = document.getElementById('service').value;
+const quantity = document.getElementById('quantity').value;
+const details = document.getElementById('details').value;
+
+const message =
+"طلب جديد من BBA Print & Design\n" +
+"الاسم: " + name + "\n" +
+"الخدمة: " + service + "\n" +
+"الكمية: " + quantity + "\n" +
+"التفاصيل: " + details;
+
+const url = "https://wa.me/213549324801?text=" +
+encodeURIComponent(message);
+
+window.open(url, "_blank");
+}
+</script>
 <section id="portfolio" style="padding:40px 15px;text-align:center;">
 
 <h2>نماذج من أعمالنا</h2>
