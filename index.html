@@ -99,54 +99,118 @@ section{padding:55px 0}.section-head{text-align:center;margin-bottom:30px}.secti
 
 </div>
   </section>
-<section id="order" style="padding:40px 15px;text-align:center;">
+<section id="order" class="order-section">
+  <div class="order-container">
+    <span class="order-tag">BBA PRINT & DESIGN</span>
+    <h2>اطلب تصميمك الآن</h2>
+    <p class="order-desc">املأ المعلومات وسنتواصل معك لتأكيد طلبك.</p>
 
-<h2>اطلب تصميمك الآن</h2>
-<p>املأ معلوماتك وسنتواصل معك</p>
+    <form id="orderForm">
+      <label for="customer">الاسم الكامل</label>
+      <input id="customer" type="text" placeholder="أدخل اسمك الكامل" required>
 
-<form onsubmit="sendOrder(event)">
+      <label for="phone">رقم الهاتف</label>
+      <input id="phone" type="tel" placeholder="05XXXXXXXX" required>
 
-<input id="customer" type="text"
-placeholder="اسم الزبون" required>
+      <label for="service">نوع الخدمة</label>
+      <select id="service" required>
+        <option value="">اختر الخدمة</option>
+        <option>تصميم منشور</option>
+        <option>تصميم شعار</option>
+        <option>بطاقات أعمال</option>
+      </select>
 
-<select id="service" required>
-<option value="تصميم منشور">تصميم منشور</option>
-<option value="تصميم شعار">تصميم شعار</option>
-<option value="بطاقات أعمال">بطاقات أعمال</option>
-</select>
+      <label for="quantity">الكمية</label>
+      <input id="quantity" type="number" min="1" value="1" required>
 
-<input id="quantity" type="number"
-placeholder="الكمية" min="1" required>
+      <label for="details">تفاصيل الطلب</label>
+      <textarea id="details" rows="4" placeholder="اشرح لنا التصميم الذي تريده..."></textarea>
 
-<textarea id="details"
-placeholder="تفاصيل الطلب"></textarea>
-
-<button type="submit">اطلب عبر WhatsApp</button>
-
-</form>
+      <button type="submit">إرسال الطلب عبر WhatsApp</button>
+    </form>
+  </div>
 </section>
 
-<script>
-function sendOrder(event) {
-event.preventDefault();
-
-const name = document.getElementById('customer').value;
-const service = document.getElementById('service').value;
-const quantity = document.getElementById('quantity').value;
-const details = document.getElementById('details').value;
-
-const message =
-"طلب جديد من BBA Print & Design\n" +
-"الاسم: " + name + "\n" +
-"الخدمة: " + service + "\n" +
-"الكمية: " + quantity + "\n" +
-"التفاصيل: " + details;
-
-const url = "https://wa.me/213549324801?text=" +
-encodeURIComponent(message);
-
-window.open(url, "_blank");
+<style>
+.order-section {
+  padding: 50px 15px;
+  background: #f7f7f7;
+  direction: rtl;
 }
+.order-container {
+  max-width: 550px;
+  margin: auto;
+  padding: 30px 22px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 5px 25px rgba(0,0,0,.07);
+}
+.order-tag {
+  color: #b38a45;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.order-container h2 {
+  color: #222;
+  margin-bottom: 8px;
+}
+.order-desc {
+  color: #777;
+  margin-bottom: 25px;
+}
+.order-container label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+.order-container input,
+.order-container select,
+.order-container textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 9px;
+  box-sizing: border-box;
+  font: inherit;
+  background: #fff;
+}
+.order-container button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  border: 0;
+  border-radius: 9px;
+  background: #b38a45;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("customer").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const service = document.getElementById("service").value;
+  const quantity = document.getElementById("quantity").value;
+  const details = document.getElementById("details").value.trim();
+
+  const message =
+    "طلب جديد من BBA Print & Design\n" +
+    "الاسم: " + name + "\n" +
+    "الهاتف: " + phone + "\n" +
+    "الخدمة: " + service + "\n" +
+    "الكمية: " + quantity + "\n" +
+    "التفاصيل: " + (details || "لا توجد");
+
+  const url = "https://wa.me/213549324801?text=" +
+    encodeURIComponent(message);
+
+  window.open(url, "_blank");
+});
 </script>
 <section id="portfolio" style="padding:40px 15px;text-align:center;">
 
