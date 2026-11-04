@@ -205,6 +205,7 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
   const service = document.getElementById("service").value;
   const quantity = document.getElementById("quantity").value;
   const details = document.getElementById("details").value.trim();
+  const reference = document.getElementById("reference").files[0];
 
   const message =
     "طلب جديد من BBA Print & Design\n" +
