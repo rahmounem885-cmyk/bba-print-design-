@@ -216,7 +216,7 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
 "التفاصيل: " + (details || "لا توجد") + "\n" +
 "الملف المرجعي: " + (reference ? reference.name + " (يرجى إرفاقه في WhatsApp)" : "لا يوجد");
 
-const url = "https://wa.me/213549324801?text=" +
+const url = "https://api.whatsapp.com/send?phone=213549324801&text=" +
 encodeURIComponent(message);
   
   window.location.href = url;
