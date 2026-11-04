@@ -218,7 +218,8 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
   const url = "https://wa.me/213549324801?text=" +
     encodeURIComponent(message);
 
-  window.open(url, "_blank");
+  "التفاصيل: " + (details || "لا توجد") + "\n" +
+"الملف المرجعي: " + (reference ? reference.name + " (يرجى إرفاقه في WhatsApp)" : "لا يوجد");
 });
 </script>
 <section id="portfolio" style="padding:40px 15px;text-align:center;">
