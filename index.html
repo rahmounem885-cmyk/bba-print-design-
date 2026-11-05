@@ -197,30 +197,40 @@ section{padding:55px 0}.section-head{text-align:center;margin-bottom:30px}.secti
 </style>
 
 <script>
-document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
 
-  const name = document.getElementById("customer").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const service = document.getElementById("service").value;
-  const quantity = document.getElementById("quantity").value;
-  const details = document.getElementById("details").value.trim();
-  const reference = document.getElementById("reference").files[0];
+  const form = document.getElementById("orderForm");
 
-  const message =
-"طلب جديد من BBA Print & Design\n" +
-"الاسم: " + name + "\n" +
-"الهاتف: " + phone + "\n" +
-"الخدمة: " + service + "\n" +
-"الكمية: " + quantity + "\n" +
-"التفاصيل: " + (details || "لا توجد") + "\n" +
-"الملف المرجعي: " + (reference ? reference.name + " (يرجى إرفاقه في WhatsApp)" : "لا يوجد");
+  if (!form) return;
 
-const url = "https://api.whatsapp.com/send?phone=213549324801&text=" +
-encodeURIComponent(message);
-  window.location.href = url;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customer").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const quantity = document.getElementById("quantity").value;
+    const details = document.getElementById("details").value.trim();
+    const file = document.getElementById("reference").files[0];
+
+    const message =
+      "طلب جديد من BBA Print & Design\n" +
+      "الاسم: " + name + "\n" +
+      "الهاتف: " + phone + "\n" +
+      "الخدمة: " + service + "\n" +
+      "الكمية: " + quantity + "\n" +
+      "التفاصيل: " + (details || "لا توجد") + "\n" +
+      "الملف: " + (file ? file.name : "لا يوجد");
+
+    const url =
+      "https://api.whatsapp.com/send?phone=213549324801&text=" +
+      encodeURIComponent(message);
+
+    window.location.assign(url);
+  });
+
 });
-</script>
+                        </script>
 <section id="portfolio" style="padding:40px 15px;text-align:center;">
 
 <h2>نماذج من أعمالنا</h2>
