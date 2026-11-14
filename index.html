@@ -242,8 +242,6 @@ footer {
     </div>
   </div>
 </section>
-
-
 <section id="gallery" class="about">
   <h2 class="section-title">معرض أعمالنا</h2>
 
@@ -265,9 +263,6 @@ footer {
 
   </div>
 </section>
-
-
-
 <section id="prices">
   <h2 class="section-title">أسعار خدماتنا</h2>
 
@@ -291,8 +286,6 @@ footer {
     </div>
   </div>
 </section>
-
-
 <!-- 6: نموذج طلب الخدمة -->
 <section id="order" class="about">
   <h2 class="section-title">اطلب خدمتك</h2>
@@ -321,7 +314,6 @@ footer {
     </button>
   </form>
 </section>
-
 <!-- 7: التواصل -->
 <section class="contact">
   <h2 class="section-title">تواصل معنا</h2>
@@ -341,7 +333,6 @@ footer {
 
 <!-- 9: تشغيل نموذج الطلب -->
 <script>
-
 const form = document.getElementById("orderForm");
 
 form.addEventListener("submit", function(event) {
@@ -368,12 +359,10 @@ form.addEventListener("submit", function(event) {
     "https://wa.me/213549324801?text=" +
     encodeURIComponent(message);
 
-  window.open(url, "_blank");
+  window.location.href = url;
 });
-
 });
 </script>
-
 <!-- زر واتساب العائم -->
 <a href="https://wa.me/213549324801"
    class="whatsapp-float"
