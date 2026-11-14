@@ -243,50 +243,55 @@ footer {
   </div>
 </section>
 
-<!-- 4: معرض الأعمال -->
+
 <section id="gallery" class="about">
   <h2 class="section-title">معرض أعمالنا</h2>
 
   <div class="cards">
+
     <div class="card">
       <img src="./file_0000000057908211a89fffd20818b75e.png"
-           alt="تصميم بطاقات أعمال">
+           alt="بطاقات أعمال">
       <h3>بطاقات الأعمال</h3>
+      <p>تصاميم احترافية للأفراد والمؤسسات</p>
     </div>
 
     <div class="card">
       <img src="./poster-bba.png"
-           alt="تصميم إعلاني"
-           onerror="this.style.display='none'">
-      <h3>تصاميم إعلانية</h3>
+           alt="تصميم إعلاني">
+      <h3>التصاميم الإعلانية</h3>
+      <p>إعلانات ومنشورات مميزة</p>
     </div>
+
   </div>
 </section>
 
-<!-- 5: الأسعار -->
+
+
 <section id="prices">
-  <h2 class="section-title">قائمة الأسعار</h2>
+  <h2 class="section-title">أسعار خدماتنا</h2>
 
   <div class="cards">
     <div class="card">
-      <h3>تصميم منشور</h3>
-      <p>تصميم منشور للسوشيال ميديا</p>
-      <p class="price">حسب الطلب</p>
+      <h3>تصميم منشورات</h3>
+      <p>تصاميم خاصة بمواقع التواصل</p>
+      <p class="price">السعر حسب الطلب</p>
     </div>
 
     <div class="card">
       <h3>بطاقات الأعمال</h3>
       <p>تصميم بطاقات شخصية وتجارية</p>
-      <p class="price">حسب الكمية</p>
+      <p class="price">السعر حسب الطلب</p>
     </div>
 
     <div class="card">
-      <h3>تصميم إعلان</h3>
-      <p>تصميم إعلاني احترافي</p>
-      <p class="price">حسب الطلب</p>
+      <h3>الطباعة</h3>
+      <p>خدمات الطباعة المختلفة</p>
+      <p class="price">السعر حسب الكمية</p>
     </div>
   </div>
 </section>
+
 
 <!-- 6: نموذج طلب الخدمة -->
 <section id="order" class="about">
@@ -336,6 +341,7 @@ footer {
 
 <!-- 9: تشغيل نموذج الطلب -->
 <script>
+
 const form = document.getElementById("orderForm");
 
 form.addEventListener("submit", function(event) {
@@ -352,25 +358,46 @@ form.addEventListener("submit", function(event) {
   }
 
   const message =
-    "طلب خدمة جديد - BBA Print & Design%0A" +
-    "الاسم: " + encodeURIComponent(name) + "%0A" +
-    "الهاتف: " + encodeURIComponent(phone) + "%0A" +
-    "الخدمة: " + encodeURIComponent(service) + "%0A" +
-    "التفاصيل: " + encodeURIComponent(details);
+    "طلب جديد من BBA Print & Design\n" +
+    "الاسم: " + name + "\n" +
+    "الهاتف: " + phone + "\n" +
+    "الخدمة: " + service + "\n" +
+    "التفاصيل: " + details;
 
-  const whatsappNumber = "213549324801";
+  const url =
+    "https://wa.me/213549324801?text=" +
+    encodeURIComponent(message);
 
-  if (whatsappNumber === "213549324801") {
-    alert("يرجى وضع رقم WhatsApp الخاص بك في الكود أولاً");
-    return;
-  }
+  window.open(url, "_blank");
+});
 
-  window.open(
-    "https://wa.me/" + whatsappNumber + "?text=" + message,
-    "_blank"
-  );
 });
 </script>
+
+<!-- زر واتساب العائم -->
+<a href="https://wa.me/213549324801"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="تواصل معنا عبر واتساب">
+  WhatsApp
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px #0003;
+}
+</style>
 
 </body>
 </html>
